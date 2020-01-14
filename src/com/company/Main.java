@@ -6,14 +6,17 @@ import java.util.Scanner;
 
 public class Main {
 
+    /*
+    main
+     */
     public static void main(String[] args) {
-
-
-//        showStars();
-
         menu();
     }
 
+
+    /*
+    Metoda obsługująca dodawanie nowej gwiazdy
+     */
     public static void addNewStar(){
         DatabaseManager databaseManager = new DatabaseManager();
 
@@ -27,31 +30,9 @@ public class Main {
         menu();
     }
 
-    public static void showConstellations(){
-        DatabaseManager databaseManager = new DatabaseManager();
-
-        List<String> list = databaseManager.getConstellations();
-        for (String s : list){
-            System.out.println(s);
-        }
-
-        databaseManager.close();
-    }
-
-    public static void showStars(){
-
-        DatabaseManager databaseManager = new DatabaseManager();
-
-        List<Star> list = databaseManager.getStarsInHemisphere(Star.Hemisphere.PN);
-        System.out.println(list.size());
-        for (Star s : list){
-            System.out.println(s.present());
-        }
-
-        databaseManager.close();
-
-    }
-
+    /*
+    metoda wyświetlająca menu
+     */
     public static void showMenu(){
         System.out.println("Wybierz co chcesz zrobić:");
         System.out.println("1 - Pokaż gwiazdy");
@@ -60,6 +41,9 @@ public class Main {
         System.out.println("4 - Wyjdź");
     }
 
+    /*
+    metoda do obsługi menu
+     */
     public static void menu(){
 
         Scanner scanner = new Scanner(System.in);
@@ -84,6 +68,9 @@ public class Main {
 
     }
 
+    /*
+    metoda obsługująca usuwanie gwiazdy przez użytkownika
+     */
     private static void deleteStar() {
         Scanner scanner = new Scanner(System.in);
         DatabaseManager databaseManager = new DatabaseManager();
@@ -103,6 +90,9 @@ public class Main {
 
     }
 
+    /*
+    metoda wyświetlająca podmenu - pokaż gwiazdy
+     */
     public static void showSubMenu(){
         System.out.println("Wybierz opcję wyświetlania gwiazd:");
         System.out.println("1 - Wszystkie gwiazdy");
@@ -114,6 +104,9 @@ public class Main {
         System.out.println("7 - Gwiazdy, które mogą być supernowymi");
     }
 
+    /*
+    metoda do obsługi podmenu
+     */
     public static void submenu(){
         showSubMenu();
         Scanner scanner = new Scanner(System.in);

@@ -1,5 +1,6 @@
 package com.company;
 
+import java.nio.file.Paths;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,7 +18,8 @@ public class DatabaseManager {
     public DatabaseManager()
     {
         try {
-            String url = "jdbc:sqlite:G://java-workspace/ćwiczenia/Gwiazda/gwiazdy.db";
+            String path = Paths.get(".").toAbsolutePath().normalize().toString().replace('\\', '/');
+            String url = "jdbc:sqlite:" + path +"/gwiazdy.db";
 
             connection = DriverManager.getConnection(url);
 
